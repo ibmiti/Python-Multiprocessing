@@ -4,10 +4,17 @@ import time
 start = time.perf_counter()
 
 def power_nap():
-    print('Sleeping 1 second...')
-    time.sleep(1)
+    print('Sleeping for : 1 second...')
+    time.sleep(1.5)
     print('...yawn....')
     print('...Awake')
+
+def snore():
+    print("snoring : zzzzzzzzzz")
+
+def alarm():
+    print("alarm : brrrrrrrrrr")
+    print("alarm : brrrrrrrrrrnngggg")
 
 # every call of the func. will execute the sleep method within time module
 # cpu bound task run synchronously - or one at a time...
@@ -20,9 +27,13 @@ def power_nap():
 #  here is an example using the imported multiprocessing module
 p1 = multiprocessing.Process(target=power_nap) # p1 as process-1
 p2 = multiprocessing.Process(target=power_nap)
+p3 = multiprocessing.Process(target=snore)
 
 p1.start()
+snore()
 p2.start()
+p3.start()
+alarm()
 
 # to give the p1,p2 time to finish before the interpeter executes the print() we must use .join()
 
