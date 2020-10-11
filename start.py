@@ -31,4 +31,12 @@ p2.join()
 
 finish = time.perf_counter() # perf_counter() function always returns the float value of time in seconds
 
-print(f'Finished in {round(finish-start, 2)}) seconds(s)')
+# finish = time.perf_counter() + 4  this is test case - this otherwise should not be considered
+
+print(f'Finished in {round(finish-start, 2)} seconds(s)')
+
+# as there are two processes which if ran synchronously should take ~2 seconds or more
+if (finish - start) >= 2.05:
+    print(f'the process took ~{(finish - start)} seconds and multiprocessing did not work and or slow')
+else :
+    print(f'Multiprocessing worked : process took {(finish - start)}')
