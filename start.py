@@ -26,8 +26,8 @@ p2.start()
 
 # to give the p1,p2 time to finish before the interpeter executes the print() we must use .join()
 
-# p1.join()
-# p2.join()
+p1.join()
+p2.join()
 
 finish = time.perf_counter() # perf_counter() function always returns the float value of time in seconds
 
